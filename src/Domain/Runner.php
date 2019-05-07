@@ -11,6 +11,7 @@ class Runner
 
     private $climateChange = true;
 
+    private $allowsWeaponPosession = true;
     /**
      * Runner constructor.
      */
@@ -43,6 +44,9 @@ class Runner
             if ($this->climateChange) {
                 $country->applyClimateChangeToDeathRates();
             }
+
+            $country->applyFirearmPosessionToDeathRates($this->allowsWeaponPosession);
+
         }
 
         return $country;

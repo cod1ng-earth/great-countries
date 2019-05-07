@@ -128,4 +128,13 @@ class Country
         }
     }
 
+    public function applyFirearmPosessionToDeathRates($allowed = true) {
+
+        $factor = $allowed ? 1.5 : 0.75;
+
+        $this->deathReasons['homicide'] = $this->deathReasons['homicide'] * $factor;
+        $this->deathReasons['suicide'] = $this->deathReasons['suicide'] * $factor;
+    }
+
+
 }

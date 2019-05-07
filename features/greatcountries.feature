@@ -16,11 +16,18 @@ Feature: Make my country great again
   Scenario:
     When The president runs that country for "8" years
     Then There should me more citizens in the country than 340000000
+    And There should me less citizens in the country than 350000000
 
   Scenario: restrict immigration by building a wall
     Given "100" new citizens arrive as "refugees"
     When The president runs that country for "8" years
     Then There should me more citizens in the country than 340000000
+    And There should me less citizens in the country than 350000000
+
+#  Scenario: restrict weapons possession
+#    When I restrict the right to possess firearms
+#    And The president runs that country for 10 years
+#    Then The "homicide" death rate should be "1" out of "100000"
 
 
 

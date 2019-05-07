@@ -94,8 +94,10 @@ class DomainContext implements Context
      */
     public function isItsPresident($president)
     {
-        if ($president != "Donald Trump")
-        $this->runner->disableClimateChange();
+        if ($president != "Donald Trump") {
+            $this->runner->disableClimateChange();
+        }
+
     }
 
 
