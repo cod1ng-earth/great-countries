@@ -1,0 +1,6 @@
+services:
+    test.app.logger:
+        alias: 'monolog.logger'
+        public: true
+
+

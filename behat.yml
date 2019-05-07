@@ -1,0 +1,17 @@
+default:
+  autoload: [ 'features/contexts' ]
+  suites:
+    default:
+      paths: [ 'features' ]
+      contexts:
+        - FeatureContext:
+            kernel: "@kernel"
+        - DomainContext:
+            logger: "@test.app.logger"
+
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        bootstrap: features/bootstrap/bootstrap.php
+        class: App\Kernel
+
