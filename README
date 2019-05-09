@@ -1,0 +1,1 @@
+docker build -t great-countries . && docker run -it great-countries behat

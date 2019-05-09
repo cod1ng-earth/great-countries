@@ -85,11 +85,11 @@ COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ARG XDEBUG_VERSION=2.6.0
-RUN set -eux; \
-	apk add --no-cache --virtual .build-deps $PHPIZE_DEPS; \
-	pecl install xdebug-$XDEBUG_VERSION; \
-	docker-php-ext-enable xdebug; \
-	apk del .build-deps
+#RUN set -eux; \
+#	apk add --no-cache --virtual .build-deps $PHPIZE_DEPS; \
+#	pecl install xdebug-$XDEBUG_VERSION; \
+#	docker-php-ext-enable xdebug; \
+#	apk del .build-deps
 
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["bash"]
