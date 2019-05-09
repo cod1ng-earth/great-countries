@@ -69,15 +69,15 @@ ARG APP_ENV=prod
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.json composer.lock symfony.lock ./
 RUN set -eux; \
-	composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest 2>&1 > make.log;  \
-	composer clear-cache 2>&1 > make.log;  exit 0;
+	composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest 2>&1 > make.log;  \
+	composer clear-cache 2>&1 > make.log; exit 0;
 
 COPY . ./
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
-	composer dump-autoload --classmap-authoritative --no-dev -q 2>&1 > make.log; exit 0; \
-	composer run-script --no-dev -q post-install-cmd 2>&1 > make.log; exit 0;  \
+	composer dump-autoload --classmap-authoritative -q 2>&1 > make.log; exit 0; \
+	composer run-script -q post-install-cmd 2>&1 > make.log; exit 0;  \
 	chmod +x bin/console; sync; exit 0
 VOLUME /app/var
 
